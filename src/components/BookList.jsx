@@ -1,10 +1,14 @@
-import bookFacade from '../bookFacade'
+import { useState } from 'react';
 import { NavLink } from 'react-router'
+import bookFacade from '../bookFacade'
 const BookList = () => {
-    const books = bookFacade.getBooks();
+    const [books, setBooks] = useState(bookFacade.getBooks());
     console.log(books)
     const handleDelete = (evt) => {
         console.log('TARGET: ',evt.target)
+        bookFacade.deleteBook(evt.target.id);
+        setBooks([...bookFacade.getBooks()])
+        console.log(books);
     }
     // const handleEdit = () => {}
     return (

@@ -16,7 +16,7 @@ const findBook = (id) => {
 }
 
 const deleteBook = (id) => {    
-  const bookId = isNaN(id) ? Number(id) : id;
+  const bookId = isNaN(id) ? id : Number(id);
    books = books.filter(book=>book.id!==bookId)
 }
 
